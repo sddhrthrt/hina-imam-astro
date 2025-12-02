@@ -1,0 +1,14 @@
+---
+import { Link } from 'accessible-astro-components'
+interface Props {
+  href: string
+  linktext: string
+  subtext?: string
+  type?: string
+}
+
+const { href, linktext, subtext = '', type="primary" } = Astro.props
+---
+<Link href={href} type={type}>
+  {linktext}
+</Link><br/><span class="ml-8"><i> — {subtext}</i></span>

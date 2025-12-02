@@ -1,0 +1,79 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PublicationLink from '@components/PublicationLink.astro'
+
+const publications = [
+  { section: "Features & Essays",
+    entries: [
+["https://www.theglobeandmail.com/opinion/article-who-has-an-accent-depends-on-who-you-ask/", "Who has an accent? Depends on who you ask", "The Globe and Mail, July 2024"],
+["https://thewalrus.ca/i-didnt-hate-cooking-palak-paneer-i-hated-the-patriarchy/", "I Didn’t Hate Cooking Palak Paneer, I Hated the Patriarchy", "The Walrus, August 2023"],
+["https://www.citr.ca/discorder/june-july-2022/ubc-drag/", "Fashionably Late but Fiercely multi-Layered", "Discorder Magazine, July 2022"],
+["https://www.citr.ca/discorder/jan-feb-2022/making-art-under-siege/", "Making Art Under Seige", "Discorder Magazine, March 2022"],
+["https://roadsandkingdoms.com/2018/ful-tameez-in-jeddah/", "OVER BREAKFAST, HOPING FOR SMALL CHANGES IN SAUDI ARABIA", "Roads & Kingdoms, June 2018"],
+["https://www.thequint.com/photos/little-known-tales-from-the-lives-of-the-karachi-cantt-station#8", "Little Known Tales From the Lives of the Karachi Cantt Station ", "The Quint, October 2017"],
+["https://www.thefridaytimes.com/2017/10/20/grooming-on-the-go/", "Grooming on the go", "The Friday Times, October 2017"],
+["https://www.thefridaytimes.com/2017/05/12/balconies-as-no-go-zones/", "Balconies as no-go zones", "The Friday Times, May 2017 March 2020"],
+  ]},
+  { section: "Reporting", 
+    entries: [
+["https://thetyee.ca/News/2019/11/27/Foreign-Students-Financial-Hell/", "The Second Year Trap: How Foreign Students Fall into Financial Hell", "The Tyee, Nov 2019"],
+["https://www.cbc.ca/arts/to-protect-indigenous-values-this-director-created-an-artistic-treaty-for-her-new-play-1.5143441", "To protect Indigenous values, this director created an artistic 'treaty' for her new play", "CBC Arts, May 2019"],
+["https://www.straight.com/life/1242306/strathcona-walking-tour-highlights-contributions-vancouvers-early-immigrant-communities", "Strathcona walking tour highlights contributions of Vancouver’s early immigrant communities ", "The Georgia Straight, May 2019"],
+["https://www.straight.com/news/1244326/us-border-hassles-tips-navigating-difficult-situation", "U.S. border hassles: Tips for navigating a difficult situation ", "The Georgia Straight, May 2019"],
+["https://www.straight.com/life/1244811/loud-scholarships-recognize-exceptional-leadership-lgbt-community", "LOUD scholarships recognize exceptional leadership in the LGBT community", "The Georgia Straight, May 2019"],
+["https://www.dawn.com/news/1418274/footprints-taking-the-wheel-in-saudi-arabia", "Footprints: Taking the wheel in Saudi Arabia ", "DAWN, July 2018"],
+  ]},
+  {section: "Profiles & Interviews",
+    entries: [
+["https://xtramagazine.com/culture/tv-film/vivek-shraya-fail-popstar-tv-258126", "‘How to Fail as a Popstar’ asks us to make space for failure", "Xtra Magazine, October 2023"],
+["https://www.citr.ca/discorder/march-april-2022/its-easier-if-its-in-a-song/", "It’s Easier If It's In a Song", "Discorder Magazine, April 2022"],
+["https://thetyee.ca/Culture/2022/07/15/Look-Harder-Dr-Ayesha-Chaudhry-Interview/", "‘Look Harder. You Are Here’ ", "The Tyee, July 2022"],
+["https://www.straight.com/movies/1244961/burqa-boutique-explores-diversity-muslim-women", "Burqa Boutique explores the diversity of Muslim women ", "The Georgia Straight, May 2019"],
+  ]}
+]
+
+// <a href="https://www.theglobeandmail.com/opinion/article-who-has-an-accent-depends-on-who-you-ask/" target="_blank"><strong>Who has an accent? Depends on who you ask</strong> </a><strong>— <em>The Globe and Mail, July 2024</em></strong>
+// <a href="https://thewalrus.ca/i-didnt-hate-cooking-palak-paneer-i-hated-the-patriarchy/" target="_blank"><strong>I Didn’t Hate Cooking Palak Paneer, I Hated the Patriarchy</strong></a><strong> — <em>The Walrus, August 2023</em></strong>
+// <a href="https://www.citr.ca/discorder/june-july-2022/ubc-drag/" target="_blank"><strong>Fashionably Late but Fiercely multi-Layered</strong></a><strong> — <em>Discorder Magazine, July 2022</em></strong>
+// <a href="https://www.citr.ca/discorder/jan-feb-2022/making-art-under-siege/"><strong>Making Art Under Seige</strong></a><strong> <em>— Discorder Magazine, </em>March 2022 </strong>
+// <a href="https://roadsandkingdoms.com/2018/ful-tameez-in-jeddah/"><strong>OVER BREAKFAST, HOPING FOR SMALL CHANGES IN SAUDI ARABIA </strong></a><strong>— <em>Roads &amp; Kingdoms,</em> June 2018</strong>
+// <a href="https://www.thequint.com/photos/little-known-tales-from-the-lives-of-the-karachi-cantt-station#8" target="_blank"><strong>Little Known Tales From the Lives of the Karachi Cantt Station </strong></a><strong>— <em>The Quint,</em> October 2017</strong>
+// <a href="https://www.thefridaytimes.com/2017/10/20/grooming-on-the-go/" target="_blank"><strong>Grooming on the go </strong></a><strong>— <em>The Friday Times,</em> October 2017</strong>
+// <a href="https://www.thefridaytimes.com/2017/05/12/balconies-as-no-go-zones/"><strong>Balconies as no-go zones</strong></a><strong> — <em>The Friday Times,</em> May 2017</strong><a href="https://www.theglobeandmail.com/canada/british-columbia/article-universities-work-hard-to-improve-diversity-but-the-challenge-is-an/" target="_blank"><strong>Universities work hard to improve diversity, but the challenge is an evolving one</strong></a><strong> —<em>The Globe and Mail,</em> March 2020</strong>
+// <a href="https://thetyee.ca/News/2019/11/27/Foreign-Students-Financial-Hell/" target="_blank"><strong>The Second Year Trap: How Foreign Students Fall into Financial Hell</strong> </a><strong>— <em>The Tyee,</em> Nov 2019</strong>
+// <a href="https://www.cbc.ca/arts/to-protect-indigenous-values-this-director-created-an-artistic-treaty-for-her-new-play-1.5143441" target="_blank"><strong>To protect Indigenous values, this director created an artistic 'treaty' for her new play</strong></a> <strong>— <em>CBC Arts,</em> May 2019</strong>
+// <a href="https://www.straight.com/life/1242306/strathcona-walking-tour-highlights-contributions-vancouvers-early-immigrant-communities" target="_blank"><strong>Strathcona walking tour highlights contributions of Vancouver’s early immigrant communities </strong></a><strong>— <em>The Georgia Straight,</em> May 2019</strong>
+// <a href="https://www.straight.com/news/1244326/us-border-hassles-tips-navigating-difficult-situation" target="_blank"><strong>U.S. border hassles: Tips for navigating a difficult situation </strong></a><strong>— <em>The Georgia Straight,</em> May 2019</strong>
+// <a href="https://www.straight.com/life/1244811/loud-scholarships-recognize-exceptional-leadership-lgbt-community" target="_blank"><strong>LOUD scholarships recognize exceptional leadership in the LGBT community</strong></a><a href="https://www.straight.com/life/1244811/loud-scholarships-recognize-exceptional-leadership-lgbt-community"><strong> </strong></a><strong>— <em>The Georgia Straight,</em> May 2019</strong>
+// <a href="https://www.dawn.com/news/1418274/footprints-taking-the-wheel-in-saudi-arabia" target="_blank"><strong>Footprints: Taking the wheel in Saudi Arabia </strong></a><strong>— <em>DAWN,</em> July 2018</strong>
+// <a href="https://xtramagazine.com/culture/tv-film/vivek-shraya-fail-popstar-tv-258126" target="_blank"><strong>‘How to Fail as a Popstar’ asks us to make space for failure</strong></a><strong>— <em>Xtra Magazine,</em> October 2023</strong>
+// <a href="https://www.citr.ca/discorder/march-april-2022/its-easier-if-its-in-a-song/" target="_blank"><strong>It’s Easier If It's In a Song</strong></a><strong>— <em>Discorder Magazine</em>, April 2022</strong>
+// <a href="https://thetyee.ca/Culture/2022/07/15/Look-Harder-Dr-Ayesha-Chaudhry-Interview/" target="_blank"><strong>‘Look Harder. You Are Here’ </strong></a><strong>— <em>The Tyee</em>, July 2022</strong>
+// <a href="https://www.straight.com/movies/1244961/burqa-boutique-explores-diversity-muslim-women" target="_blank"><strong>Burqa Boutique explores the diversity of Muslim women </strong></a><strong>— <em>The Georgia Straight,</em> May 2019</strong>
+
+---
+
+<DefaultLayout title="Selected Writing">
+  <section class="my-32">
+    <div class="space-content container ml-64">
+      <h3>Selected Writing</h3>
+      <br />
+      {publications.map((category)=>(
+        <div class="flex-col px-4 mt-32 pl-16 w-full">
+          <h4>{category.section}</h4>
+          <ul class="space-y-4 mt-4">
+            {category.entries.map((tup)=>(
+              <li>
+                <PublicationLink 
+                  type="secondary"
+                  href={tup[0]}
+                  linktext={tup[1]}
+                  subtext={tup[2]} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</DefaultLayout>

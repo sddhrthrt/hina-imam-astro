@@ -1,0 +1,46 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Image } from 'astro:assets'
+import { Form, Input, Button, Textarea, Checkbox, Fieldset, Heading, Link, Radio } from 'accessible-astro-components'
+
+import polesImage from '../assets/hina_imam_poles.webp'
+import ContentMedia from '@components/ContentMedia.astro'
+---
+
+<DefaultLayout>
+  <ContentMedia imgSrc={polesImage.src} imgAlt="Urban Street Photo" imgCaption="Image Credit: Hina Imam">
+      <h3>Services I offer</h3>
+      <div class="py-4">
+        <ul>
+          <li>
+            Freelance journalistic writing
+          </li>
+          <li>
+            Content creation
+          </li>
+          <li>
+            Audio production & editing
+          </li>
+          <li>
+            Guest speaker/ lecturer
+          </li>
+          <li>
+            Moderating/ hosting
+          </li>
+          <li>
+            Culture & arts programming
+          </li>
+        </ul>
+      </div>
+
+  </ContentMedia>
+  <!-- <div class="flex flex-row py-12 h-full px-8 gap-8">
+    <div class="flex flex-col align-middle justify-start px-8 w-full">
+    </div>
+    <div class="flex flex-col max-w-1/2 h-vh my-auto">
+      <Image src={polesImage} alt=""></Image>
+      <span class="text-sm mt-4">  </span>
+    </div>
+  </div> -->
+</DefaultLayout>

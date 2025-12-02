@@ -11,6 +11,9 @@ interface Props {
    * The source URL for the image
    */
   imgSrc: string
+  imgAlt: string
+  imgCaption?: string
+  imgClass?: string
   /**
    * Whether to display the image on the right side instead of the left
    * @default false
@@ -18,17 +21,27 @@ interface Props {
   reverseImg?: boolean
 }
 
-const { imgSrc, reverseImg = false }: Props = Astro.props
+const { imgSrc, imgAlt, imgCaption="", imgClass="", reverseImg = false }: Props = Astro.props
 ---
 
-<section class="my-64">
-  <div class="container">
-    <div class="grid grid-cols-1 gap-24 md:grid-cols-2">
-      {!reverseImg ? <Media class="rounded-lg" src={imgSrc} /> : ''}
+<section class="h-full">
+  <div class="container h-full">
+    <div class="grid grid-cols-1 gap-16 md:grid-cols-2 h-full">
+      {!reverseImg ? 
+      <div class="h-full content-center">
+        <Media class={imgClass} src={imgSrc} alt={imgAlt}/>
+        {imgCaption? <span class="text-sm mt-4">{imgCaption}</span> : ''}
+      </div>
+      : ''}
       <div class="space-content flex flex-col justify-center">
         <slot />
       </div>
-      {reverseImg ? <Media class="rounded-lg" src={imgSrc} /> : ''}
+      {reverseImg ? 
+      <div class="h-full content-center">
+        <Media class={imgClass} src={imgSrc} />
+        {imgCaption? <span class="text-sm mt-4">{imgCaption}</span> : ''}
+      </div>
+      : ''}
     </div>
   </div>
 </section>

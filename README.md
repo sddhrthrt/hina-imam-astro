@@ -1,226 +1,113 @@
-<a href="https://astros.zank.studio">
-  <img src=".github/images/astros.gif" />
-</a>
+# Accessible Astro Starter
 
-# [Astros](https://astros.zank.studio)
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
 
-<a href="https://astro.build/">![Astro](.github/images/astro-icon.png)</a>
-<a href="https://tailwindcss.com/">![Tailwind](.github/images/tailwind-icon.png)</a>
-<a href="https://alpinejs.dev/">![Alpine js](.github/images/alpine-icon.png)</a>
+<img width="1200" height="627" alt="social-preview" src="https://github.com/user-attachments/assets/fa1a8b50-3aab-4bd3-8f50-1d43586fbd84" />
 
-Astros is a template made with [Astro](https://astro.build), [Tailwind](https://tailwindcss.com/) and [AlpineJS](https://alpinejs.dev/).
+A ready-to-use, SEO and accessibility-focused Astro starter template. Built with modern web standards, WCAG 2.2 AA guidelines, and European Accessibility Act (EAA) compliance in mind, it provides a solid foundation for creating inclusive websites. Features Tailwind CSS 4 integration, comprehensive component library with enhanced form validation, color contrast checker, and typography with Atkinson Hyperlegible font for improved readability. Includes dynamic blog/portfolio pages with social sharing, contact forms, and full MDX support.
 
-This project is strongly inspired by [Astroship](https://github.com/surjithctly/astroship), [Flowbite](https://flowbite.com/blocks/) and [Tailwind UI](https://tailwindui.com/components) components, make sure to check them out as well!
+[![LIVE DEMO](https://img.shields.io/badge/LIVE_DEMO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro-starter.incluud.dev/) &nbsp;
+[![DOCUMENTATION](https://img.shields.io/badge/DOCUMENTATION-A682FF?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro.incluud.dev/) &nbsp;
+[![Sponsor on Open Collective](https://img.shields.io/badge/Open%20Collective-7FADF2?style=for-the-badge&logo=opencollective&logoColor=white)](https://opencollective.com/incluud) &nbsp;
 
+## Our mission
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/zankhq/astros)
+> Provide developers with accessible, easy-to-use components that make building inclusive web applications simpler and faster, without compromising on customization or performance.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/zankhq/astros)
+## (Accessibility) Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/zankhq/astros)
+- Astro 5.13.0+
+- Tailwind CSS 4.1+ support
+- TypeScript integration with path aliases for easier imports and content collections support
+- Prettier integration with `prettier-plugin-astro` and `prettier-plugin-tailwind`
+- ESLint integration with strict accessibility settings for `eslint-plugin-jsx-a11y`
+- Markdown and MDX support with comprehensive examples and components
+- Modern OKLCH color system with automatic palette generation from primary/secondary colors
+- Atkinson Hyperlegible font for improved readability and accessibility
+- Lucide icon set via `astro-icon` for consistent, friendly icons
+- Semantic HTML structure with `Button`, `Link` and `Heading` components
+- Excellent Lighthouse/PageSpeed scores
+- Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
+- Outline focus indicator which works on dark and light backgrounds
+- Several `aria` attributes which provide a better experience for screen reader users
+- `[...page].astro` and `[post].astro` demonstrate the use of dynamic routes and provide a basic blog with breadcrumbs and pagination
+- `404.astro` provides a custom 404 error page which you can adjust to your needs
+- `Header.astro` component with optimized accessibility and design
+- `Footer.astro` component with informative content and links
+- `SkipLinks.astro` component to skip to either the main menu or the main content
+- `Navigation.astro` component with keyboard accessible (dropdown) navigation and highlighted menu item option
+- `ResponsiveToggle.astro` component with accessible responsive toggle functionality
+- `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme setting
+- `SiteMeta.astro` SEO component for setting custom metadata on different pages
+- `.sr-only` utility class for screen reader only text content (hides text visually)
+- `prefers-reduced-motion` disables animations for users that have this preference turned on
+- Components including `ColorContrast.astro`, `BlockQuote.astro`, `BreakoutImage.astro`, `Logo.astro`, `SocialShares.astro`, `PageHeader.astro`, `FeaturedPosts.astro`, and `FeaturedProjects.astro`
+- Enhanced form components with comprehensive validation: `Form`, `Input`, `Textarea`, `Checkbox`, `Radio`, and `Fieldset` with WCAG 2.2 compliance
+- Automatic form validation with custom patterns, error handling, and screen reader support
+- Blog and portfolio pages with featured images, author details, social sharing, and breakout images
+- Contact page with comprehensive form validation showcase and accessibility demonstrations
+- Thank-you page for form submissions with interactive feedback
+- Accessibility Statement template page
+- Color Contrast Checker interactive page
+- Comprehensive sitemap page with organized navigation and automatic XML sitemap generation via `@astrojs/sitemap`
+- Enhanced accessible-components showcase page with expanded component demonstrations
+- Smooth micro-interactions and animations on hover, open and close states (respecting reduced motion preferences)
+- Comprehensive SCSS utility classes
+- CSS with logical properties and custom properties
+- Accessible button and hyperlink styling with clear focus states
+- Styled `<kbd>` element for keyboard shortcut documentation
 
+## Getting started
 
-### [🧪 Site preview →](https://astros.zank.studio)
+Clone this theme locally and run any of the following commands in your terminal:
 
-### [🧑‍🚀 Astro website →](https://astro.build/)
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `npm install`     | Installs dependencies                        |
+| `npm run dev`     | Starts local dev server at `localhost:4321`  |
+| `npm run build`   | Build your production site to `./dist/`      |
+| `npm run preview` | Preview your build locally, before deploying |
 
-### [🕮 Astro docs →](https://docs.astro.build/en/getting-started/)
+## Accessible Astro projects
 
----
+- [Accessible Astro Starter](https://github.com/incluud/accessible-astro-starter): Fully accessible starter for kickstarting Astro projects, with Tailwind.
+- [Accessible Astro Components](https://github.com/incluud/accessible-astro-components/): Library of reusable, accessible components built for Astro.
+- [Accessible Astro Dashboard](https://github.com/incluud/accessible-astro-dashboard/): User-friendly dashboard interface with a login screen and widgets.
+- [Accessible Astro Docs](https://github.com/incluud/accessible-astro-docs): Comprehensive documentation for all Accessible Astro projects.
+- [Color Contrast Checker](https://github.com/incluud/color-contrast-checker): WCAG-compliant color contrast checker with design system token generation.
 
-## Preview
+Check out our [roadmap](https://github.com/orgs/incluud/projects/4/views/1) to see what's coming next!
 
-![Alt text](.github/images/pagespeed-small.png)
+## Contributing
 
-![Astros Preview](.github/images/astros-preview.png)
+We welcome contributions to improve the documentation! You can help by:
 
-## 🧪 Test
+1. [Filing an issue](https://github.com/incluud/accessible-astro-starter/issues)
+2. [Submitting a pull request](https://github.com/incluud/accessible-astro-starter/pulls)
+3. [Starting a discussion](https://github.com/incluud/accessible-astro-starter/discussions)
+4. [Supporting on Open Collective](https://opencollective.com/incluud)
 
-On the folder run
+## Support this project
 
-1. `bun install`  <small>(or `yarn` or `pnpm i`)</small>
-2. `bun run dev`  <small>(or `yarn dev` or `pnpm dev`)</small>
+Your support helps us cover basic costs and continue building accessible solutions for the Astro ecosystem. By becoming a sponsor, you're not just supporting code – you're helping create a more inclusive web for everyone. Every contribution, big or small, helps maintain and improve these accessibility-focused tools.
 
-(if it's not working report an [issue](https://github.com/zankhq/astros/issues))
+[![Sponsor on Open Collective](https://img.shields.io/badge/Open%20Collective-7FADF2?style=for-the-badge&logo=opencollective&logoColor=white)](https://opencollective.com/incluud)
 
-## 🚀 Deploy
+## Together we make a difference
 
-### Cloudflare pages (suggested)
+We want to express our heartfelt gratitude to everyone who contributes to making the web more accessible:
 
-You can either click on the button above to deploy to Cloudflare automatically, or you can fork this repository and deploy manually from cloudflare dashboard.
+- **The Astro team** for creating an amazing static site generator and the wonderful Starlight theme
+- **Our contributors** who dedicate their time and expertise to improve these tools
+- [**Niek Derksen**](https://niekderksen.nl) for conducting comprehensive accessibility audits to ensure WCAG compliance
+- **Our sponsors** who help make this project sustainable
+- **The web community** for embracing and promoting web accessibility
+- **You, the developer** for choosing to make your projects more accessible
 
-You can leave build settings as defaults.
+<a href="https://github.com/incluud/accessible-astro-starter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=incluud/accessible-astro-starter" />
+</a><br /><br />
 
-<details>
-<summary>Cloudflare configuration</summary>
+Together, we're not just building documentation or components – we're creating a more inclusive and accessible web for everyone. Every contribution, whether it's code, documentation, bug reports, or feedback, helps move us closer to this goal. ✨
 
-![Alt text](.github/images/image.png)
-
-</details>
-
-### Netlify
-
-`TODO`
-
-### Vercel
-
-`TODO`
-
-### Others
-
-You can check the deploy documentation at https://docs.astro.build/en/guides/deploy/
-
-## ✅ Features
-
-- [x] Localization (with astro-i18next)
-- [x] Light/Dark mode (provided by tailwind)
-- [x] Discussion on articles (thanks to giscus)
-- [x] Blog
-- [x] CMS for editing blog post (thanks to Sveltia CMS)
-- [x] PWA (thanks to vite-pwa)
-- [ ] AI to generate article posts
-
-## ✍️ Admin dashboard
-
-You can access the admin dashboard for editing blog post at `/admin` (https://astros.zank.studio/admin)
-
-For more information follow Sveltia CMS documentation at [https://github.com/sveltia/sveltia-cms](https://github.com/sveltia/sveltia-cms)
-
-## 🧞 Dependencies
-
-Astros depends on the following packages:
-
-| Dependency                                                                             | Version        |
-| -------------------------------------------------------------------------------------- | -------------- |
-| [@astrojs/mdx](https://www.npmjs.com/package/@astrojs/mdx)                             | ^0.19.7        |
-| [@astrojs/rss](https://www.npmjs.com/package/@astrojs/rss)                             | ^2.4.3         |
-| [@astrojs/sitemap](https://www.npmjs.com/package/@astrojs/sitemap)                     | ^1.3.3         |
-| [@astrojs/tailwind](https://www.npmjs.com/package/@astrojs/tailwind)                   | ^3.1.3         |
-| [@fontsource-variable/inter](https://www.npmjs.com/package/@fontsource-variable/inter) | ^5.0.2         |
-| [astro](https://www.npmjs.com/package/astro)                                           | ^2.6.1         |
-| [astro-i18next](https://www.npmjs.com/package/astro-i18next)                           | ^1.0.0-beta.21 |
-| [astro-icon](https://www.npmjs.com/package/astro-icon)                                 | ^0.8.1         |
-| [astro-seo](https://www.npmjs.com/package/astro-seo)                                   | ^0.7.4         |
-| [bad-words](https://www.npmjs.com/package/bad-words)                                   | ^3.0.4         |
-| [dotenv](https://www.npmjs.com/package/dotenv)                                         | ^16.1.4        |
-| [openai](https://www.npmjs.com/package/openai)                                         | ^3.2.1         |
-| [rehype-autolink-headings](https://www.npmjs.com/package/rehype-autolink-headings)     | ^6.1.1         |
-| [rehype-slug](https://www.npmjs.com/package/rehype-slug)                               | ^5.1.0         |
-| [rss-parser](https://www.npmjs.com/package/rss-parser)                                 | ^3.13.0        |
-| [tailwindcss](https://www.npmjs.com/package/tailwindcss)                               | ^3.3.2         |
-
-## Known issues
-
-- Localization is not detected automatically
-
-## FAQ
-
-<br/>
-
-<details>
-  <summary>What is this?</summary>
-<br/>
-  This is a astro template that uses tailwindcss and alpinejs
-</details>
-<br/>
-
-<details>
-  <summary>Why alpinejs? Why don't just use js?</summary>
-<br/>
-  Alpine js is less than 17kb and it make javascript very fast to write, there are also various open source ready to use components like https://js.hyperui.dev, https://devdojo.com/pines, https://www.alpinetoolbox.com/examples, https://alpinejs.dev/components#components
-</details>
-<br/>
-
-<details>
-  <summary>But I don't need alpine js, can I remove it?</summary>
-<br/>
-  Of course, but some components use it and you'll have to edit these, more specifically you ll have to: <br/>
-  <ul style="list-style: inside;">
-    <li>First remove the package with the command <code>npm unistall @astrojs/alpinejs @types/alpinejs alpinejs</code></li>
-    <li>Adjust all components that uses alpine js: <code>faq.astro</code>, <code>themeselector.astro</code>, <code>navbar.astro</code></li>
-  </ul>
-</details>
-<br/>
-
-<details>
-  <summary>Can I remove also tailwidcss?</summary>
-<br/>
-  I mean, you can, but you'll have to basically rewrite all the template, so I don't recommend it
-</details>
-<br/>
-
-<details>
-  <summary>I don't need client routing, how can I remove it?</summary>
-<br/>
-  From astro 2.9 you can opt-in for client routing (https://astro.build/blog/astro-290) by activating the experimental flag viewTransitions <br/>
-  You can remove client routing by removing <code>viewTransitions: true</code> from <code>astro.config.mjs</code> And the <code>ViewTransitions</code> component from Layout.astro
-</details>
-<br/>
-
-<details>
-  <summary>I don't need multiple language, how can I remove it?</summary>
-<br/>
-  One way is to simply keep one language and remove the selector from the footer but in order to fully remove the localization you have to: <br/>
-  <ul style="list-style: inside;">
-    <li>Remove the i18next pacakage <code>npm unistall astro-i18next</code></li>
-    <li>Remove <code>astro-i18next.config.mjs</code> file</li>
-    <li>Remove <code>locales</code> folder from public</li>
-    <li>Remove <code>languageselector.astro</code> file and from footer</li>
-    <li>Find all reference to <code>i18next</code> and <code>astro-i18next</code> and replace with your text</li>
-  </ul>
-</details>
-<br/>
-
-<details>
-  <summary>I don't need dark mode, how can I remove it?</summary>
-<br/>
-  Dark mode is embedded into tailwindcss, so you can't remove it, but you can remove the switch from the navbar
-</details>
-<br/>
-
-
-<details>
-  <summary>How can I configure the Sveltia CMS authentication with cloudflare?</summary>
-<br/>
-  To configure Sveltia CMS with cloudflare follow this guide <a href="https://github.com/sveltia/sveltia-cms" target="_blank">https://github.com/sveltia/sveltia-cms</a>
-</details>
-<br/>
-
-
-<details>
-  <summary>How can I change the localization languages?</summary>
-<br/>
-  In order to change the languages you have to change the languages in the file <code>astro-i18next.config.mjs</code> and in the netlifyCMS configuration on the file <code>astro.config.mjs</code> <br/>
-  Then change the locales files folders in <code>public/locales</code>
-</details>
-<br/>
-
-<details>
-  <summary>What are the files in the function folder used for?</summary>
-<br/>
-  These are cloudflare function that are used for the authentication to the decap CMS
-</details>
-<br/>
-
-<details>
-  <summary>The build on cloudflare keep failing, why?</summary>
-<br/>
-  One of the problem could be that the Build system version is setted to version 1, make sure that version 2 is selected
-</details>
-<br/>
-
-<details>
-  <summary>Work with modules in relink</summary>
-<br/>
-  This is helpful if you want to apply some changes to various modules while you are working on the website.
-To do so you have to go into each module and run
-
-```
-npm link
-```
-</details>
-<br/>
-
----
-
-<p align="right"><a href="https://zank.studio/" target="_blank">zank.studio</p>
+Remember: Accessibility is not a feature, it's a fundamental right. Thank you for being part of this journey!

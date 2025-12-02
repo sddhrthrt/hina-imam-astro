@@ -1,76 +1,38 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { autolinkConfig } from "./plugins/rehype-autolink-config";
-import rehypeSlug from "rehype-slug";
-import astroI18next from "astro-i18next";
-import alpinejs from "@astrojs/alpinejs";
-import AstroPWA from "@vite-pwa/astro";
-import icon from "astro-icon";
+import { defineConfig } from 'astro/config'
+import { fileURLToPath } from 'url'
+import compress from 'astro-compress'
+import icon from 'astro-icon'
+import mdx from '@astrojs/mdx'
+import sitemap from '@astrojs/sitemap'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://astros.zank.studio",
-	vite: {
-		define: {
-			__DATE__: `'${new Date().toISOString()}'`,
-		},
-	},
-	integrations: [
-		tailwind(),
-		sitemap(),
-		astroI18next(),
-		alpinejs(),
-		AstroPWA({
-			mode: "production",
-			base: "/",
-			scope: "/",
-			includeAssets: ["favicon.svg"],
-			registerType: "autoUpdate",
-			manifest: {
-				name: "Astros - Starter Template for Astro with Tailwind CSS",
-				short_name: "Astros",
-				theme_color: "#ffffff",
-				icons: [
-					{
-						src: "pwa-192x192.png",
-						sizes: "192x192",
-						type: "image/png",
-					},
-					{
-						src: "pwa-512x512.png",
-						sizes: "512x512",
-						type: "image/png",
-					},
-					{
-						src: "pwa-512x512.png",
-						sizes: "512x512",
-						type: "image/png",
-						purpose: "any maskable",
-					},
-				],
-			},
-			workbox: {
-				navigateFallback: "/404",
-				globPatterns: ["*.js"],
-			},
-			devOptions: {
-				enabled: false,
-				navigateFallbackAllowlist: [/^\/404$/],
-				suppressWarnings: true,
-			},
-		}),
-		icon(),
-	],
-	markdown: {
-		rehypePlugins: [
-			rehypeSlug,
-			// This adds links to headings
-			[rehypeAutolinkHeadings, autolinkConfig],
-		],
-	},
-	experimental: {
-		contentCollectionCache: true,
-	},
-});
+  compressHTML: true,
+  site: 'https://accessible-astro-starter.incluud.dev',
+  integrations: [compress(), icon(), mdx(), sitemap()],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          logger: {
+            warn: () => {},
+          },
+        },
+      },
+    },
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
+        '@layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
+        '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+        '@content': fileURLToPath(new URL('./src/content', import.meta.url)),
+        '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
+        '@public': fileURLToPath(new URL('./public', import.meta.url)),
+        '@post-images': fileURLToPath(new URL('./public/posts', import.meta.url)),
+        '@project-images': fileURLToPath(new URL('./public/projects', import.meta.url)),
+      },
+    },
+  },
+})

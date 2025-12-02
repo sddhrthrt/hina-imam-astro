@@ -6,11 +6,20 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 
+import sanity from '@sanity/astro';
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
   site: 'https://accessible-astro-starter.incluud.dev',
-  integrations: [compress(), icon(), mdx(), sitemap()],
+  integrations: [compress(), icon(), mdx(), sitemap(), sanity({
+      projectId: 'ovgkd8c3',
+      dataset: 'production',
+      useCdn: false, // See note on using the CDN
+      apiVersion: "2025-01-28", // insert the current date to access the latest version of the API
+      studioBasePath: '/studio' // If you want to access the Studio on a route
+    }), react()],
   vite: {
     css: {
       preprocessorOptions: {

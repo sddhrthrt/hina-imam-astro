@@ -60,9 +60,19 @@
     "tailwindcss": "^4.1.13"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.5.1",
+    "@sanity/astro": "^3.2.10",
+    "@sanity/client": "^7.13.1",
     "@tailwindcss/vite": "^4.1.13",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "accessible-astro-components": "^5.0.1",
-    "sharp": "^0.34.5"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-is": "^19.2.0",
+    "sanity": "^4.19.0",
+    "sharp": "^0.34.5",
+    "styled-components": "^6.1.19"
   }
 }

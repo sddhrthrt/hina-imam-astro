@@ -1,6 +1,4 @@
 ---
-import { Link } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 
 /**
@@ -22,8 +20,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 <section class="hero my-24">
   <div class="container">
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
-      <slot />
-      <Image class="hidden lg:block" src={images[src]()} alt="" decoding="async" width={800} height={600} loading="eager" />
+      <div class="order-2 lg:order-1">
+        <slot />
+      </div>
+      <Image class="order-1 lg:order-2 lg:block" src={images[src]()} alt="" decoding="async" width={800} height={600} loading="eager" />
     </div>
   </div>
 </section>

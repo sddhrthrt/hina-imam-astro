@@ -3,15 +3,15 @@ import '../styles/tailwind.css'
 import '../assets/scss/index.scss'
 import SiteMeta from '@components/SiteMeta.astro'
 import Header from '@components/Header.astro'
-import Footer from '@components/Footer.astro'
+import Footer from '@components/footer.astro'
 import { ClientRouter } from 'astro:transitions'
 
 const {
-  title = 'Accessible Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  title = 'Hina Imam',
+  description = 'Hina Imam - Portfolio',
   url = Astro.site,
-  image = 'social-preview-image.png',
-  author = 'Incluud',
+  image = "../src/assets/hina_imam_headshot.webp",
+  author = 'Hina Imam',
 } = Astro.props
 ---
 
@@ -43,11 +43,18 @@ const {
       body {
         height: 100%;
       }
+      header {
+        background-color: light-dark(var(--color-amber-200), var(--color-slate-950));
+      }
 
       body {
         display: flex;
         flex-direction: column;
         overflow-x: clip;
+        background-color: light-dark(
+          color-mix(in oklab, var(--color-amber-50) /* oklch(98.7% 0.022 95.277) */ 80%, transparent),
+          var(--color-slate-900)
+        );
 
         main {
           flex: 1 0 auto;

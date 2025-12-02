@@ -237,7 +237,6 @@ import Logo from './Logo.astro'
     .responsive-toggle {
       display: flex;
       align-items: center;
-      gap: var(--space-2xs);
     }
 
     .desktop-menu {
@@ -257,12 +256,16 @@ import Logo from './Logo.astro'
       .desktop-menu {
         display: block;
       }
+      nav {
+        > ul {
+          gap: var(--space-m);
+        }
+      }
     }
 
     .wrapper {
       display: flex;
       align-items: center;
-      gap: var(--space-m);
     }
 
     a,
@@ -273,7 +276,6 @@ import Logo from './Logo.astro'
     nav {
       > ul {
         display: flex;
-        gap: var(--space-m);
         list-style-type: none;
 
         li {
@@ -318,8 +320,6 @@ import Logo from './Logo.astro'
     .mobile-menu {
       flex-basis: 100%;
       margin-block-start: var(--space-m);
-      border: 1px solid var(--border-color-subtle);
-      border-radius: var(--radius-l);
       padding: var(--space-m);
 
       > ul {

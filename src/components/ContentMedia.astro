@@ -33,7 +33,7 @@ const { imgSrc, imgAlt, imgCaption="", imgClass="", reverseImg = false }: Props 
         {imgCaption? <span class="text-sm mt-4">{imgCaption}</span> : ''}
       </div>
       : ''}
-      <div class="space-content flex flex-col justify-center">
+      <div class="space-content flex flex-col justify-center px-4 md:px-0">
         <slot />
       </div>
       {reverseImg ? 

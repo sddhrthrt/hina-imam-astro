@@ -1,6 +1,9 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PublicationLink from '@components/PublicationLink.astro'
+import { getCollection } from 'astro:content'
+
+const audio = await getCollection("audio")
 ---
 
 <DefaultLayout title="Selected Audio">
@@ -9,57 +12,23 @@ import PublicationLink from '@components/PublicationLink.astro'
       <h3>Selected Audio</h3>
       <br />
       <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="md:px-4 mt-12">
-          <h4>Audio Documentaries</h4>
-          <ul class="space-y-4 mt-8">
-            <li>
-              <PublicationLink 
-                href="https://www.citr.ca/radio/special-broadcast/episode/20220808" 
-                linktext="In This Place We Belong" 
-                subtext="CiTR Radio 101.9 FM, August 2022" />
-            </li>
-            <li>
-              <PublicationLink
-                href="https://www.citr.ca/radio/special-broadcast/episode/20210820/" 
-                type="info"
-                linktext="Where We Begin: A Collection of Origin Stories"
-                subtext="CiTR Radio 101.9 FM, August 2021" />
-            </li>
-            <li>
-              <PublicationLink 
-                href="" 
-                type="info"
-                linktext="Forgotten British Columbia: Chinese Head Tax"
-                subtext="CiTR Radio 101.9 FM, July 2021" />
-            </li>
-          </ul>
-        </div>
-        <div class="md:px-4 mt-12">
-          <h4>Audio Editing</h4>
-          <ul class="space-y-4 mt-8">
-            <li>
-              <PublicationLink 
-                href="https://magazine.alumni.ubc.ca/podcasts/dr-gail-murphy-frontlines-research-and-innovation-ubc" 
-                type="info"
-                linktext="Dr. Gail Murphy: On the frontlines of research and innovation at UBC"
-                subtext="From Here Forward, UBC Podcast Network, June 2023" />
-            </li>
-            <li>
-              <PublicationLink 
-                href="https://magazine.alumni.ubc.ca/podcasts/power-storytelling-human-rights" 
-                type="info"
-                linktext="The power of storytelling for human rights"
-                subtext="From Here Forward, UBC Podcast Network, February 2023" />
-            </li>
-            <li>
-              <PublicationLink 
-                href="https://magazine.alumni.ubc.ca/podcasts/three-billion-download-man" 
-                type="info"
-                linktext="The three billion download man"
-                subtext="From Here Forward, UBC Podcast Network, November 2022" />
-            </li>
-          </ul>
-        </div>
+        {
+          audio[0].data.map((category)=> (
+            <div class="md:px-4 mt-12">
+              <h4>{category.category}</h4>
+              <ul class="space-y-4 mt-8">
+                {category.items.map((item)=>(
+                <li>
+                  <PublicationLink 
+                    href={item.link}
+                    linktext={item.title}
+                    subtext={item.publication} />
+                </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

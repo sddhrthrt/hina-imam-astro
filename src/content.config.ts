@@ -24,5 +24,50 @@ const projects = defineCollection({
   }),
 })
 
+const audio = defineCollection({
+  loader: glob({ pattern: "audio/content.mdx", base: './src/content/portfolio' }),
+  schema: z.array(
+    z.object({
+      category: z.string(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          link: z.string(),
+          publication: z.string(),
+        })
+      )
+    })
+  )
+})
+const writing = defineCollection({
+  loader: glob({ pattern: "writing/content.mdx", base: './src/content/portfolio' }),
+  schema: z.array(
+    z.object({
+      category: z.string(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          link: z.string(),
+          publication: z.string(),
+        })
+      )
+    })
+  )
+})
+
+const speaking = defineCollection({
+  loader: glob({ pattern: "speaking/content.mdx", base: './src/content/portfolio' }),
+  schema: z.array(
+    z.string()
+  )
+})
+
+const services = defineCollection({
+  loader: glob({ pattern: "services/content.mdx", base: './src/content/portfolio' }),
+  schema: z.array(
+    z.string()
+  )
+})
+
 // 4. Export a single `collections` object to register you collection(s)
-export const collections = { posts, projects }
+export const collections = { posts, projects, audio, writing, speaking, services }

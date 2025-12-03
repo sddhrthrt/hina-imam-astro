@@ -3,8 +3,8 @@
   interpolate-size: allow-keywords;
 
   // brand colors (change these to your own brand colors)
-  --brand-primary: #A68F72;
-  --brand-secondary: #73672F;
+  --brand-primary: #574227;
+  --brand-secondary: #a78c15;
   --brand-neutral: #F2EDDC;
 
   // pallet brand
@@ -33,7 +33,7 @@
   // color scheme
   --foreground-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
   --icon-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
-  --link-color: light-dark(var(--color-primary-400), var(--color-secondary-100));
+  --link-color: light-dark(var(--color-primary-500), var(--color-secondary-100));
   --link-hover-color: light-dark(var(--color-primary-300), var(--color-secondary-200));
   --border-color: light-dark(var(--color-neutral-900), var(--color-neutral-100));
   --border-color-subtle: light-dark(var(--color-neutral-300), var(--color-neutral-800));

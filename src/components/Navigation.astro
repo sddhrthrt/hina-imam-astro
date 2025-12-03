@@ -246,7 +246,7 @@ import Logo from './Logo.astro'
     // Desktop: switch to desktop menu at nav breakpoint
     @include breakpoint('nav') {
       .mobile-menu {
-        display: none;
+        display: none !important;
       }
 
       .responsive-toggle {
@@ -280,6 +280,10 @@ import Logo from './Logo.astro'
 
         li {
           align-content: center;
+        }
+
+        a {
+          text-align: left;
         }
 
         a:hover,
@@ -374,7 +378,7 @@ import Logo from './Logo.astro'
         box-shadow: var(--elevation-4);
         border: 2px solid var(--border-color-subtle);
         border-radius: var(--radius-l);
-        background-color: var(--background-color);
+        background-color: var(--header-color);
         padding: var(--space-m);
         min-inline-size: 275px;
 

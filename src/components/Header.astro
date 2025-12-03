@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro'
+import { getCollection } from "astro:content";
 import { DarkMode, Link, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
@@ -8,6 +9,12 @@ import { Icon } from 'astro-icon/components'
  *
  * @description A component that displays the header of the website
  */
+
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+
+const hasPosts = posts.length > 0
 ---
 
 <header>
@@ -16,20 +23,38 @@ import { Icon } from 'astro-icon/components'
     <li class="menu-item">
       <Link href="/">Home</Link>
     </li>
-    <li class="menu-item">
-      <Link href="/writing">Writing</Link>
+    { hasPosts &&
+      <li class="menu-item">
+        <Link href="/blog">Blog</Link>
+      </li>
+    }
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">
+        <Link href="/writing">Portfolio</Link>
+        <Icon aria-hidden="true" name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <Link href="/audio">Audio</Link>
+        </li>
+        <li class="submenu-item">
+          <Link href="/speaking">Speaking Engagement</Link>
+        </li>
+      </ul>
     </li>
-    <li class="menu-item">
-      <Link href="/audio">Audio</Link>
-    </li>
-    <li class="menu-item">
-      <Link href="/speaking">Speaking Engagement</Link>
-    </li>
-    <li class="menu-item">
-      <Link href="/services">Services</Link>
-    </li>
-    <li class="menu-item">
-      <Link href="/contact">Contact</Link>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">
+        <Link href="/writing">Work with me</Link>
+        <Icon aria-hidden="true" name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <Link href="/services">Services</Link>
+        </li>
+        <li class="submenu-item">
+          <Link href="/contact">Contact</Link>
+        </li>
+      </ul>
     </li>
     <li class="menu-item type-icon animate-rotate">
       <DarkMode>
@@ -42,7 +67,6 @@ import { Icon } from 'astro-icon/components'
 
 <style lang="scss" is:global>
   header {
-    background-color: var(--header-color);
     .type-icon {
       display: block;
       margin-inline: -7px;

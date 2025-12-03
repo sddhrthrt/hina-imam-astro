@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from "astro:content";
+// import Giscus from "@components/Giscus.astro";
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { Heading } from "accessible-astro-components";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("posts"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: post,
+  }));
+}
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function getNextPost() {
+  let postIndex;
+  for (const post of posts) {
+    if (post.id === Astro.params.id) {
+      postIndex = posts.indexOf(post);
+      return posts[postIndex + 1];
+    }
+  }
+}
+
+function getPrevPost() {
+  let postIndex;
+  for (const post of posts) {
+    if (post.id === Astro.params.id) {
+      postIndex = posts.indexOf(post);
+      return posts[postIndex - 1];
+    }
+  }
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<DefaultLayout title={post.data.title} description={post.data.description}>
+  <div class="container">
+    <Heading level="h2" class="my-6">{post.data.title}</Heading>
+    <Content />
+  </div>
+</DefaultLayout>

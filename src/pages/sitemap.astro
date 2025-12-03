@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content'
 
 // Get all portfolio projects
 const projects = await getCollection('projects')
+const posts = await getCollection('posts')
 
 // Define static pages with their descriptions
 const staticPages = [
@@ -69,8 +70,6 @@ const staticPages = [
 >
   <PageHeader
     title="Sitemap"
-    subtitle="A comprehensive overview of all pages and content available on our website, organized for easy navigation."
-    bgType="gradient"
   />
 
   <section class="my-16">
@@ -114,9 +113,6 @@ const staticPages = [
                 </Heading>
                 <p class="mb-3">{project.data.description}</p>
                 <div class="text-xs">
-                  <p class="mb-1">
-                    By: <span class="font-medium">{project.data.author}</span>
-                  </p>
                   <p>
                     URL:{' '}
                     <code class="rounded bg-neutral-100 px-1 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800 dark:text-neutral-500">
@@ -142,19 +138,33 @@ const staticPages = [
             features dynamic content with pagination for easy browsing.
           </p>
           <div class="text-xs">
-            <p>Features: Dynamic content from JSONPlaceholder API</p>
             <p>
               Base URL: <code
                 class="rounded bg-neutral-100 px-1 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800 dark:text-neutral-500"
                 >/blog</code
               >
             </p>
-            <p>
-              Individual posts: <code
-                class="rounded bg-neutral-100 px-1 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800 dark:text-neutral-500"
-                >/blog/[post-title]</code
-              >
-            </p>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {
+                posts.map((post) => (
+                  <article>
+                    <Heading level="h3" size="h6" class="mb-3">
+                      <a href={`/portfolio/${post.id}`}>{post.data.title}</a>
+                    </Heading>
+                    <p class="mb-3">{post.data.description}</p>
+                    <div class="text-xs">
+                      <p>
+                        URL:{' '}
+                        <code class="rounded bg-neutral-100 px-1 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800 dark:text-neutral-500">
+                          /portfolio/{post.id}
+                        </code>
+                      </p>
+                    </div>
+                  </article>
+                ))
+              }
+            </div>
           </div>
         </article>
       </div>

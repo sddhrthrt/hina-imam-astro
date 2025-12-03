@@ -1,0 +1,58 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import { Heading } from "accessible-astro-components";
+
+const data = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+type Acc = {
+  [year: string]: CollectionEntry<"posts">[];
+};
+
+const posts = data.reduce((acc: Acc, post) => {
+  const year = post.data.date.getFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {});
+
+
+const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
+console.log(posts)
+---
+
+<DefaultLayout>
+  <div class="container">
+    <Heading level="h2" class="my-6">Hina Imam's Blog</Heading>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <div class="space-y-4">
+          {
+            years.length == 0 ? 
+              "Come back soon for some posts!"
+            : years.map((year) => (
+              <section class="animate space-y-4">
+                <div class="font-semibold">
+                  {year}
+                </div>
+                <div>
+                  <ul class="not-prose flex flex-col gap-4">
+                    {posts[year].map((post) => (
+                      <li>
+                        <a href={"/blog/"+post.id}>{post.data.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </aside>
+  </Container>
+</Layout>
